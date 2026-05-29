@@ -37,4 +37,17 @@ function typeEffect(){
     setTimeout(typeEffect, delay);
 }
 
+function viewResume() {
+    window.open('images/resume.pdf', '_blank');
+}
+
+function downloadResume() {
+    const a = document.createElement('a');
+    a.href = 'images/resume.pdf';
+    a.download = 'Pradeep_Kumaran_S_Resume.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
 typeEffect();
