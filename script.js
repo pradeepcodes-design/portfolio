@@ -38,12 +38,12 @@ function typeEffect(){
 }
 
 function viewResume() {
-    window.open('images/resume.pdf', '_blank');
+    window.open('images/pradeepkumaran_resume.pdf', '_blank');
 }
 
 function downloadResume() {
     const a = document.createElement('a');
-    a.href = 'images/resume.pdf';
+    a.href = 'images/pradeepkumaran_resume.pdf';
     a.download = 'Pradeep_Kumaran_S_Resume.pdf';
     document.body.appendChild(a);
     a.click();
