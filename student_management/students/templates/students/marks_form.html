@@ -1,0 +1,56 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<div class="card">
+  <h1>Marks – {{ student.name }} ({{ student.register_number }})</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Subject 1</label>
+      <input type="number" name="subject1" min="0" max="100" value="{{ marks.subject1 }}" required>
+    </div>
+    <div class="form-group">
+      <label>Subject 2</label>
+      <input type="number" name="subject2" min="0" max="100" value="{{ marks.subject2 }}" required>
+    </div>
+    <div class="form-group">
+      <label>Subject 3</label>
+      <input type="number" name="subject3" min="0" max="100" value="{{ marks.subject3 }}" required>
+    </div>
+    <div class="form-group">
+      <label>Subject 4</label>
+      <input type="number" name="subject4" min="0" max="100" value="{{ marks.subject4 }}" required>
+    </div>
+    <div class="form-group">
+      <label>Subject 5</label>
+      <input type="number" name="subject5" min="0" max="100" value="{{ marks.subject5 }}" required>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button type="submit" class="btn btn-add">Save Marks</button>
+      <a href="{% url 'student_list' %}" class="btn btn-back">Cancel</a>
+    </div>
+  </form>
+
+  <hr style="margin:25px 0;">
+
+  <h2>Result Summary</h2>
+  <table>
+    <tr><th>Subject</th><th>Marks</th><th>Status</th></tr>
+    <tr><td>Subject 1</td><td>{{ marks.subject1 }}</td><td>{% if marks.subject1 >= 35 %}<span class="pass">Pass</span>{% else %}<span class="fail">Fail</span>{% endif %}</td></tr>
+    <tr><td>Subject 2</td><td>{{ marks.subject2 }}</td><td>{% if marks.subject2 >= 35 %}<span class="pass">Pass</span>{% else %}<span class="fail">Fail</span>{% endif %}</td></tr>
+    <tr><td>Subject 3</td><td>{{ marks.subject3 }}</td><td>{% if marks.subject3 >= 35 %}<span class="pass">Pass</span>{% else %}<span class="fail">Fail</span>{% endif %}</td></tr>
+    <tr><td>Subject 4</td><td>{{ marks.subject4 }}</td><td>{% if marks.subject4 >= 35 %}<span class="pass">Pass</span>{% else %}<span class="fail">Fail</span>{% endif %}</td></tr>
+    <tr><td>Subject 5</td><td>{{ marks.subject5 }}</td><td>{% if marks.subject5 >= 35 %}<span class="pass">Pass</span>{% else %}<span class="fail">Fail</span>{% endif %}</td></tr>
+    <tr style="font-weight:700;background:#f0f0f0;">
+      <td>Total</td><td>{{ marks.total }}/500</td><td></td>
+    </tr>
+    <tr style="font-weight:700;background:#f0f0f0;">
+      <td>Percentage</td><td>{{ marks.percentage }}%</td><td></td>
+    </tr>
+    <tr style="font-weight:700;">
+      <td>Result</td>
+      <td><span class="{% if marks.is_pass %}pass{% else %}fail{% endif %}">{{ marks.result }}</span></td>
+      <td><span class="grade-badge grade-{{ marks.grade }}">{{ marks.grade }}</span></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

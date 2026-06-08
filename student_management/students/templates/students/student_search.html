@@ -1,0 +1,36 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<div class="card">
+  <h1>Search Student</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div style="display:flex;gap:10px;">
+      <input type="text" name="register_number" placeholder="Enter Register Number" required style="flex:1;padding:10px;border:2px solid #ddd;border-radius:8px;font-size:15px;">
+      <button type="submit" class="btn btn-search">Search</button>
+    </div>
+  </form>
+</div>
+
+{% if result %}
+<div class="card">
+  <h2>{{ result.name }}</h2>
+  <table>
+    <tr><th>Register No</th><td>{{ result.register_number }}</td></tr>
+    <tr><th>Email</th><td>{{ result.email }}</td></tr>
+    <tr><th>Phone</th><td>{{ result.phone }}</td></tr>
+    <tr><th>Department</th><td>{{ result.department }}</td></tr>
+    <tr><th>Marks</th><td>
+      {% if result.marks %}
+        <a href="{% url 'marks_manage' result.pk %}" class="btn btn-marks">View Marks</a>
+      {% else %}
+        <span style="color:#888;">Not entered yet</span>
+      {% endif %}
+    </td></tr>
+  </table>
+</div>
+{% elif result is None and request.method == 'POST' %}
+<div class="card text-center">
+  <p style="color:#e74c3c;font-size:18px;">No student found with this register number.</p>
+</div>
+{% endif %}
+{% endblock %}

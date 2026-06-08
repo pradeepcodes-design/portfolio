@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- This tells the browser it's an HTML5 document -->
+<html lang="en">
+<head>
+  <!-- Meta tags for character encoding and responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Mart</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation Bar ===== -->
+  <!-- The nav bar stays at the top and helps users jump to different sections -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Logo / Brand Name -->
+      <h1 class="logo">Beauty Mart</h1>
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Home Section ===== -->
+  <!-- Hero section — the first thing visitors see -->
+  <section id="home" class="home-section">
+    <div class="container home-content">
+      <h2>Welcome to Beauty Mart</h2>
+      <p>
+        Your one-stop shop for premium beauty and skincare products.
+        Discover the best deals on top-quality brands.
+      </p>
+      <!-- Shop Now button that scrolls to the products section -->
+      <a href="#products" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- ===== Products Section ===== -->
+  <!-- Displays 6 beauty products in a responsive grid -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <h2 class="section-title">Our Products</h2>
+      <div class="products-grid" id="productsGrid">
+        <!-- Product cards will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <!-- Short paragraph about the brand -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p>
+        At Beauty Mart, we believe everyone deserves to feel beautiful.
+        We carefully handpick the finest beauty and skincare products from
+        trusted brands around the world. Our mission is to make premium
+        beauty accessible to everyone at affordable prices.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Contact Section ===== -->
+  <!-- Simple contact form with Name, Email, Message, and Submit -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <form id="contactForm" class="contact-form">
+        <!-- Name input -->
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <!-- Email input -->
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your Email" required>
+
+        <!-- Message textarea -->
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Beauty Mart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Link to external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

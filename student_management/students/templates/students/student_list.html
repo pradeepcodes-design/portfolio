@@ -1,0 +1,39 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<div class="card">
+  <div class="header-bar">
+    <h1>Student List</h1>
+    <a href="{% url 'student_add' %}" class="btn btn-add">+ Add Student</a>
+  </div>
+  {% if students %}
+  <table>
+    <thead>
+      <tr>
+        <th>Reg No</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ s.register_number }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.department }}</td>
+        <td>{{ s.email }}</td>
+        <td>
+          <a href="{% url 'student_update' s.pk %}" class="btn btn-edit">Edit</a>
+          <a href="{% url 'marks_manage' s.pk %}" class="btn btn-marks">Marks</a>
+          <a href="{% url 'student_delete' s.pk %}" class="btn btn-delete">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="text-center" style="color:#888;padding:40px 0;">No students added yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
